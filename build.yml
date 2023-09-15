@@ -1,17 +1,12 @@
 name: Start json-server
 on:
   push:
-    branches:
-      - main
-jobs:
-  start:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/setup-node@v2
-      - uses: actions/checkout@v3
-      - uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-      - run: npm install
-      - run: npm run dev
+    jobs:
+      build-node:
+        runs-on: ubuntu-latest
+        container: node:16
+        steps:
+          - uses: actions/checkout@v4
+          - run: npm install
+          - run: npm run dev
+          - run: node index.js
