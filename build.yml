@@ -8,5 +8,6 @@ on:
         steps:
           - uses: actions/checkout@v4
           - run: npm install
+          - run: npx json-server --watch db.json
           - run: npm run dev
           - run: node index.js
