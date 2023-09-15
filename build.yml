@@ -2,7 +2,7 @@ name: Start json-server
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   start:
     runs-on: ubuntu-latest
